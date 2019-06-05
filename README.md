@@ -1,2 +1,5 @@
 # vim-settings
-Vim Settings
+Vim Settings as follows:-
+
+.vimrc file
+.vim folder
