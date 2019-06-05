@@ -1,0 +1,82 @@
+set nocompatible
+filetype off
+syntax enable
+set number
+set encoding=utf-8
+
+set shiftwidth=0
+set tabstop=2
+set laststatus=2
+
+" set runtime path to include Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Let Vundle manage Vundle...
+Plugin 'gmarik/Vundle.vim'
+
+" add plugins here
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/identpython.vim'
+Plugin 'jnurmine/Zenburn'
+Bundle 'Valloric/YouCompleteMe'
+
+" install above plugins from within vim using:
+"   :PluginInstall
+" all plugins must be added above before the line below.
+call vundle#end()
+
+filetype plugin indent on
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+"    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+    \ let python_highlight_all = 1
+
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
+    autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+  augroup END
+endif
+
+set t_Co=256
+colorscheme zenburn
+" set guifont=Menlo\ Regular:h18
+" set guifont=Monospace:h15
+
+let python_highlight_all=1
+
+set hidden
+set history=108
+
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set expandtab
+" set smartindent
+set autoindent
+set cursorline
+set showmatch
+set laststatus=2
+
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" airline plugin settings
+let g:airline_powerline_fonts=1
+let g:airline_theme='zenburn'
+
+"set hlsearch
+"nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+
