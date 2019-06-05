@@ -1,0 +1,1 @@
+/home/nayan/.vim/vimrc
